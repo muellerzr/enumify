@@ -1,13 +1,13 @@
 ---
 
-title: Project name here
+title: Enumify
 
 
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "Summary description here."
-description: "Summary description here."
+summary: "A quick way to write documented Enums, or Enums with member values"
+description: "A quick way to write documented Enums, or Enums with member values"
 nb_path: "index.ipynb"
 ---
 <!--
@@ -31,33 +31,27 @@ nb_path: "index.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This file will become your README and also the index of your documentation.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Install">Install<a class="anchor-link" href="#Install"> </a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>pip install your_project_name</code></p>
+<p><code>pip install enumify</code></p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="How-to-use">How to use<a class="anchor-link" href="#How-to-use"> </a></h2>
+<h2 id="What-is-Enumify?">What is Enumify?<a class="anchor-link" href="#What-is-Enumify?"> </a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Fill me in please! Don't forget code examples:</p>
+<p>Enumify was built on an idea of how could I be the absolute laziest at declaring Enums, honestly!</p>
+<p>I didn't enjoy the idea of how I would need to re-type out member names if I just wanted them to be a 1:1, such as the following:</p>
 
 </div>
 </div>
@@ -69,7 +63,163 @@ nb_path: "index.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">enum</span>
+
+<span class="k">class</span> <span class="nc">DaysOfWeek</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">MONDAY</span> <span class="o">=</span> <span class="s2">&quot;monday&quot;</span>
+    <span class="n">TUESDAY</span> <span class="o">=</span> <span class="s2">&quot;tuesday&quot;</span>
+    <span class="n">WEDNESDAY</span> <span class="o">=</span> <span class="s2">&quot;wednesday&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There is of course, an alternative that lives in <code>fastcore</code>, specifically the <code>mk_class</code>, which annotates like the following:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fastcore.basics</span> <span class="kn">import</span> <span class="n">mk_class</span>
+<span class="n">mk_class</span><span class="p">(</span><span class="s2">&quot;DaysOfWeek&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">o</span><span class="p">:</span><span class="n">o</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;MONDAY&quot;</span><span class="p">,</span> <span class="s2">&quot;TUESDAY&quot;</span><span class="p">,</span> <span class="s2">&quot;WEDNESDAY&quot;</span><span class="p">]})</span>
+</pre></div>
+<p>But I didn't like that the <code>DaysOfWeek</code> class was permeable as it was not a true <code>Enum</code>, and I had a side goal of also making the enum members be <strong>documented</strong>.</p>
+<p>As a result, this is our finished conversion of that previous enum:</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">enumify</span> <span class="kn">import</span> <span class="n">enumify</span><span class="p">,</span> <span class="n">Member</span>
+
+<span class="nd">@enumify</span>
+<span class="k">class</span> <span class="nc">DaysOfWeek</span><span class="p">:</span>
+    <span class="n">MONDAY</span><span class="p">:</span><span class="n">Member</span>
+    <span class="n">TUESDAY</span><span class="p">:</span><span class="n">Member</span>
+    <span class="n">WEDNESDAY</span><span class="p">:</span><span class="n">Member</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And we can see its set value below:</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">DaysOfWeek</span><span class="o">.</span><span class="n">MONDAY</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>monday
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Thus we come to the two use-cases of <a href="/enumify/enumify.html#enumify"><code>enumify</code></a>:</p>
+<ul>
+<li>Make Enum's whose member's values are the names of the members</li>
+<li>Make Enum's whose members can be <em>documented</em></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="How-do-I-use-it?">How do I use it?<a class="anchor-link" href="#How-do-I-use-it?"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are two supported "modes" for <a href="/enumify/enumify.html#enumify"><code>enumify</code></a>, an interactive mode and a static mode. The static mode should be used when you're in environments such as VSCode or PyLint, where they can make use of documentation underneath a particular variable or member.</p>
+<p>Interactive mode should be if you are developing or working out of Jupyter Notebook for your enums.</p>
+<p>What do I mean by this? Let's compare two examples.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Interactive-Mode">Interactive Mode<a class="anchor-link" href="#Interactive-Mode"> </a></h3><p>With interactive mode, we can not only use the <a href="/enumify/typing.html#Member"><code>Member</code></a> or <a href="/enumify/typing.html#Mem"><code>Mem</code></a> notation to specify our self-named member, but we can also document that member with an assign:</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@enumify</span><span class="p">(</span><span class="n">interactive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">DaysOfWeek</span><span class="p">:</span>
+    <span class="n">MONDAY</span><span class="p">:</span><span class="n">Member</span> <span class="o">=</span> <span class="s2">&quot;The first day of the week&quot;</span>
+    <span class="n">TUESDAY</span><span class="p">:</span><span class="n">Member</span> <span class="o">=</span> <span class="s2">&quot;The second day of the week&quot;</span>
+    <span class="n">WEDNESDAY</span><span class="p">:</span><span class="n">Member</span> <span class="o">=</span> <span class="s2">&quot;The third day of the week&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And now these members will have affiliated documentation:</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DaysOfWeek</span><span class="o">.</span><span class="n">MONDAY</span><span class="o">.</span><span class="vm">__doc__</span>
 </pre></div>
 
     </div>
@@ -84,11 +234,161 @@ nb_path: "index.ipynb"
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>2</pre>
+<pre>&#39;The first day of the week&#39;</pre>
 </div>
 
 </div>
 
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can even document values that aren't <a href="/enumify/typing.html#Member"><code>Member</code></a> type by specifying it's documentation last in the assign</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@enumify</span><span class="p">(</span><span class="n">interactive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">DaysOfWeek</span><span class="p">:</span>
+    <span class="n">MONDAY</span><span class="p">:</span><span class="n">Member</span> <span class="o">=</span> <span class="s2">&quot;The first day of the week&quot;</span>
+    <span class="n">TUESDAY</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Some number&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DaysOfWeek</span><span class="o">.</span><span class="n">TUESDAY</span><span class="o">.</span><span class="vm">__doc__</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;Some number&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>BUT</strong>, they will <em>not</em> have this documentation show when using IDE's such as VSCode. This is where static mode comes in.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Static-Mode">Static Mode<a class="anchor-link" href="#Static-Mode"> </a></h3><p>With static mode, we can still use the <a href="/enumify/typing.html#Member"><code>Member</code></a> annotation, but we assume that the user will be working out of an IDE and instead rely on how IDE's can annotate variables.
+{% include note.html content='If so, it will be impossible for Jupyter/Notebook users to pick up your documentation for the member' %}
+Below is our complete <code>DaysOfWeek</code> example with this:</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@enumify</span><span class="p">(</span><span class="n">interactive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">DaysOfWeek</span><span class="p">:</span>
+    <span class="n">MONDAY</span><span class="p">:</span><span class="n">Member</span>
+    <span class="s2">&quot;The first day of the week&quot;</span>
+    <span class="n">TUESDAY</span><span class="p">:</span><span class="n">Member</span>
+    <span class="s2">&quot;The second day of the week&quot;</span>
+    <span class="n">WEDNESDAY</span><span class="p">:</span><span class="n">Member</span>
+    <span class="s2">&quot;The third day of the week&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DaysOfWeek</span><span class="o">.</span><span class="n">MONDAY</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;DaysOfWeek.MONDAY: &#39;monday&#39;&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">DaysOfWeek</span><span class="o">.</span><span class="n">MONDAY</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="kc">None</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 
