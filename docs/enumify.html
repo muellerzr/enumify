@@ -61,13 +61,15 @@ nb_path: "02_enumify.ipynb"
 <div class="output_markdown rendered_html output_subarea ">
 <h4 id="assign_annotations" class="doc_header"><code>assign_annotations</code><a href="https://github.com/muellerzr/enumify/tree/main/enumify/enumify.py#L11" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>assign_annotations</code>(<strong><code>interactive</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
 </blockquote>
-<p>Creates a FunctionalEnum or DocumentedEnum based on annotations and asserts in <code>cls</code></p>
-<p>Args:
+
+<pre><code>Creates a FunctionalEnum or DocumentedEnum based on annotations and asserts in `cls`
+
+Args:
   cls:
     A general class to be converted to an Enum
-  interactive (<code>bool</code>), default <code>False</code>
+  interactive (`bool`), default `False`
     Whether the enum is being made for a Jupyter environment or not,
-    and should set <code>__doc__</code></p>
+    and should set `__doc__`</code></pre>
 
 </div>
 
@@ -183,16 +185,19 @@ nb_path: "02_enumify.ipynb"
 <div class="output_markdown rendered_html output_subarea ">
 <h4 id="enumify" class="doc_header"><code>enumify</code><a href="https://github.com/muellerzr/enumify/tree/main/enumify/enumify.py#L62" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>enumify</code>(<strong><code>interactive</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
 </blockquote>
-<p>A decorator to turn <code>cls</code> into an Enum class with member values as property names, and potentially with documentation</p>
-<p>If the end result should be used in a notebook, pass <code>interactive=True</code> to have the
-documentation linked to the enum. Otherwise <code>False</code>.</p>
-<p>Should be documented with the <a href="/enumify/typing.html#Member"><code>Member</code></a> type with the following annotation if the end result should be in jupyter:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.typing</span> <span class="kn">import</span> <span class="n">Member</span>
-<span class="nd">@enumify</span>
-<span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
-  <span class="n">NAME</span><span class="p">:</span><span class="n">Member</span>
-  <span class="n">name_three</span><span class="p">:</span><span class="n">Member</span> <span class="o">=</span> <span class="s2">&quot;some value&quot;</span><span class="p">,</span> <span class="s2">&quot;Some documentation&quot;</span>
-</pre></div>
+
+<pre><code>A decorator to turn `cls` into an Enum class with member values as property names, and potentially with documentation
+
+If the end result should be used in a notebook, pass `interactive=True` to have the
+documentation linked to the enum. Otherwise `False`.
+
+Should be documented with the `Member` type with the following annotation if the end result should be in jupyter:
+```python
+from .typing import Member
+@enumify
+class MyClass:
+  NAME:Member
+  name_three:Member = "some value", "Some documentation"</code></pre>
 <p>And the following if targeting environments such as VSCode:</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.typing</span> <span class="kn">import</span> <span class="n">Member</span>
 <span class="nd">@enumify</span><span class="p">(</span><span class="n">interactive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -201,7 +206,8 @@ documentation linked to the enum. Otherwise <code>False</code>.</p>
   <span class="n">name_three</span><span class="p">:</span><span class="n">Member</span> <span class="o">=</span> <span class="s2">&quot;some value&quot;</span>
   <span class="s2">&quot;Some documentation&quot;</span>
 </pre></div>
-<p>Can also use the shorthand <a href="/enumify/typing.html#Mem"><code>Mem</code></a> type.</p>
+<p>Can also use the shorthand <code>Mem</code> type.
+```</p>
 
 </div>
 

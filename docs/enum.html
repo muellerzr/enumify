@@ -78,8 +78,10 @@ nb_path: "01_enum.ipynb"
 <div class="output_markdown rendered_html output_subarea ">
 <h2 id="FunctionalEnum" class="doc_header"><code>class</code> <code>FunctionalEnum</code><a href="https://github.com/muellerzr/enumify/tree/main/enumify/enum.py#L15" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>FunctionalEnum</code>(<strong><code>value</code></strong>, <strong><code>names</code></strong>=<em><code>None</code></em>, <strong><code>module</code></strong>=<em><code>None</code></em>, <strong><code>qualname</code></strong>=<em><code>None</code></em>, <strong><code>type</code></strong>=<em><code>None</code></em>, <strong><code>start</code></strong>=<em><code>1</code></em>) :: <code>Enum</code></p>
 </blockquote>
-<p>An <code>Enum</code> class implementing <code>__ne__</code>, <code>__eq__</code>, and <code>__str__</code> to compare <code>self.value</code>.</p>
-<p>Compatible with the functional API.</p>
+
+<pre><code>An `Enum` class implementing `__ne__`, `__eq__`, and `__str__` to compare `self.value`.
+
+Compatible with the functional API.</code></pre>
 
 </div>
 
@@ -145,12 +147,16 @@ nb_path: "01_enum.ipynb"
 <div class="output_markdown rendered_html output_subarea ">
 <h2 id="DocumentedEnum" class="doc_header"><code>class</code> <code>DocumentedEnum</code><a href="https://github.com/muellerzr/enumify/tree/main/enumify/enum.py#L31" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>DocumentedEnum</code>(<strong><code>value</code></strong>, <strong><code>names</code></strong>=<em><code>None</code></em>, <strong><code>module</code></strong>=<em><code>None</code></em>, <strong><code>qualname</code></strong>=<em><code>None</code></em>, <strong><code>type</code></strong>=<em><code>None</code></em>, <strong><code>start</code></strong>=<em><code>1</code></em>) :: <a href="/enumify/enum.html#FunctionalEnum"><code>FunctionalEnum</code></a></p>
 </blockquote>
-<p>An <code>Enum</code> capabile of having its members have docstrings.</p>
-<p>Inherits <a href="/enumify/enum.html#FunctionalEnum"><code>FunctionalEnum</code></a> to allow for logic comparison via <code>==</code>, <code>!=</code>,
-and string transformation of <code>self.value</code> via str(self).</p>
-<p>Docstrings must <em>always</em> be present when in use.</p>
-<p>Should be passed in the form of:
-  value, docstring</p>
+
+<pre><code>An `Enum` capabile of having its members have docstrings.
+
+Inherits `FunctionalEnum` to allow for logic comparison via `==`, `!=`,
+and string transformation of `self.value` via str(self).
+
+Docstrings must *always* be present when in use.
+
+Should be passed in the form of:
+  value, docstring</code></pre>
 
 </div>
 
