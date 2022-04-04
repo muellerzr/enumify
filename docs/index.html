@@ -110,44 +110,6 @@ nb_path: "index.ipynb"
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [2]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">enumify</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> enumify, Member
-<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-yellow-bg" style="color: rgb(175,0,255)">@enumify</span>
-<span class="ansi-green-fg">----&gt; 4</span> <span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">class</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,0,255)">DaysOfWeek</span><span class="ansi-yellow-bg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">MONDAY</span><span class="ansi-yellow-bg">:</span><span class="ansi-yellow-bg">Member</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">TUESDAY</span><span class="ansi-yellow-bg">:</span><span class="ansi-yellow-bg">Member</span>
-
-File <span class="ansi-green-fg">~/local/zach/enumify/enumify/enumify.py:92</span>, in <span class="ansi-cyan-fg">enumify</span><span class="ansi-blue-fg">(cls, interactive)</span>
-<span class="ansi-green-intense-fg ansi-bold">     90</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">cls</span> <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
-<span class="ansi-green-intense-fg ansi-bold">     91</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> partial(enumify, interactive<span style="color: rgb(98,98,98)">=</span>interactive)
-<span class="ansi-green-fg">---&gt; 92</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">wrap</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">cls</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">interactive</span><span class="ansi-yellow-bg">)</span>
-
-File <span class="ansi-green-fg">~/local/zach/enumify/enumify/enumify.py:89</span>, in <span class="ansi-cyan-fg">enumify.&lt;locals&gt;.wrap</span><span class="ansi-blue-fg">(cls, interactive)</span>
-<span class="ansi-green-fg">---&gt; 89</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">wrap</span>(<span style="color: rgb(0,135,0)">cls</span>, interactive): <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">assign_annotations</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">cls</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">interactive</span><span class="ansi-yellow-bg">)</span>
-
-File <span class="ansi-green-fg">~/local/zach/enumify/enumify/enumify.py:38</span>, in <span class="ansi-cyan-fg">assign_annotations</span><span class="ansi-blue-fg">(cls, interactive)</span>
-<span class="ansi-green-intense-fg ansi-bold">     36</span>         names<span style="color: rgb(98,98,98)">.</span>append([name, value])
-<span class="ansi-green-intense-fg ansi-bold">     37</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
-<span class="ansi-green-fg">---&gt; 38</span>         names<span style="color: rgb(98,98,98)">.</span>append([name, (value, <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">getattr</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">cls</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">name</span><span class="ansi-yellow-bg">)</span>)])
-<span class="ansi-green-intense-fg ansi-bold">     39</span>     keys<span style="color: rgb(98,98,98)">.</span>append(name)
-<span class="ansi-green-intense-fg ansi-bold">     41</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> name <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> d:
-
-<span class="ansi-red-fg">AttributeError</span>: type object &#39;DaysOfWeek&#39; has no attribute &#39;MONDAY&#39;</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     {% endraw %}
 
