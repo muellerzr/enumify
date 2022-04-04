@@ -35,7 +35,7 @@ def assign_annotations(cls, interactive:bool=True):
         if not interactive:
             names.append([name, value])
         else:
-            names.append([name, (value, getattr(cls, name))])
+            names.append([name, (value, getattr(cls, name, "An enumeration."))])
         keys.append(name)
 
     for name in d:

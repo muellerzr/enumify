@@ -145,6 +145,34 @@ nb_path: "02_enumify.ipynb"
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">DaysOfWeek</span><span class="p">:</span>
+    <span class="n">MONDAY</span><span class="p">:</span><span class="n">Member</span>
+    <span class="n">WEDNESDAY</span><span class="p">:</span><span class="n">Member</span>
+    <span class="n">THURSDAY</span><span class="p">:</span><span class="n">Member</span>
+
+<span class="n">NewAnnotation</span> <span class="o">=</span> <span class="n">assign_annotations</span><span class="p">(</span><span class="n">DaysOfWeek</span><span class="p">,</span> <span class="n">interactive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">test_eq</span><span class="p">(</span><span class="n">NewAnnotation</span><span class="o">.</span><span class="n">MONDAY</span><span class="p">,</span> <span class="s2">&quot;monday&quot;</span><span class="p">)</span>
+<span class="n">test_eq</span><span class="p">(</span><span class="n">NewAnnotation</span><span class="o">.</span><span class="n">MONDAY</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">test_eq</span><span class="p">(</span><span class="n">NewAnnotation</span><span class="o">.</span><span class="n">WEDNESDAY</span><span class="p">,</span> <span class="s2">&quot;wednesday&quot;</span><span class="p">)</span>
+<span class="n">test_eq</span><span class="p">(</span><span class="n">NewAnnotation</span><span class="o">.</span><span class="n">WEDNESDAY</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">test_eq</span><span class="p">(</span><span class="n">NewAnnotation</span><span class="o">.</span><span class="n">THURSDAY</span><span class="p">,</span> <span class="s2">&quot;thursday&quot;</span><span class="p">)</span>
+<span class="n">test_eq</span><span class="p">(</span><span class="n">NewAnnotation</span><span class="o">.</span><span class="n">THURSDAY</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 <div class="output_wrapper">
 <div class="output">
