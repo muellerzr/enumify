@@ -8,7 +8,7 @@ from .enum import FunctionalEnum, DocumentedEnum
 from functools import partial
 
 # Cell
-def assign_annotations(cls, interactive:bool=False):
+def assign_annotations(cls, interactive:bool=True):
     """
     Creates a FunctionalEnum or DocumentedEnum based on annotations and asserts in `cls`
 
@@ -59,7 +59,7 @@ def assign_annotations(cls, interactive:bool=False):
     return new_cls
 
 # Cell
-def enumify(cls=None, interactive=False):
+def enumify(cls=None, interactive:bool=True):
     """
     A decorator to turn `cls` into an Enum class with member values as property names, and potentially with documentation
 
@@ -77,7 +77,7 @@ def enumify(cls=None, interactive=False):
     And the following if targeting environments such as VSCode:
     ```python
     from .typing import Member
-    @enumify
+    @enumify(interactive=False)
     class MyClass:
       NAME:Member
       name_three:Member = "some value"
